@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Книжная полка</title>
+		<link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/index.css">
+		<script>
+			window.onload = function() {
+		 		fetch('https://anastasiayazvinskaya.github.io/bookshelf/books/js/test.json')
+				    .then((response) => response.json())
+				    .then((json) => console.log(json));
+				
+				document.getElementById('books-for-you').innerHTML = dataBooks.id;
+			}
+		</script>
+	</head>
+
+	<body>
+		<nav>
+			<ul>
+				<a href="index.html">Книжная полка</a>
+				<a href="gallery.html">Галерея</a>
+				<a href="quiz.html">Опрос</a>
+			</ul>
+		</nav>
+		<main>
+			<h1>Книжная полка</h1>
+			<div id="books"></div>
+		</main>
+		<footer>
+			<hr>
+			<div>
+				<p>&copy 2022 - Anastasia Yazvinskaya</p>
+				<a href="#"><img id="github" src="images/icons/github-logo.png" alt="GitHub link"></a>
+			</div>
+		</footer>
+	</body>
+</html>

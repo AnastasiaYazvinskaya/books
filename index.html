@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Книжная полка</title>
+		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/index.css">
+		<!-- Local work -->
+		<!--
+		<script type="text/javascript" src="js/dataBooks.js"></script>
+		<script>
+		 	window.onload = function() {
+		 		for (var key in dataBooks.books) {
+			 		document.getElementById('books').innerHTML += "<a href='book.html?book="+ key +"' class='book clicked'><img src='images/"+ dataBooks.books[key].code +".jpg' alt='Обложка книги \""+ dataBooks.books[key].name +"\"'><h2>"+ dataBooks.books[key].name +"</h2><h3>"+ dataBooks.books[key].author +"</h3></a>";
+			 	}
+			}
+		</script>
+		-->
+		<!-- Server work -->
+		
+		<script>
+			function fillData(data) {
+				for (var key in data.books) {
+			 		document.getElementById('books').innerHTML += "<a href='book.html?book="+ key +"' class='book clicked'><img src='images/"+ data.books[key].code +".jpg' alt='Обложка книги \""+ data.books[key].name +"\"'><h2>"+ data.books[key].name +"</h2><h3>"+ data.books[key].author +"</h3></a>";
+			 	}
+			}
+			window.onload = function() {
+		 		fetch('https://anastasiayazvinskaya.github.io/bookshelf/books/data/dataBooks.json')
+				    .then((response) => response.json())
+				    .then((json) => fillData(json));
+			}
+		</script>
+		
+	</head>
+
+	<body>
+		<nav>
+			<ul>
+				<a href="index.html">Книжная полка</a>
+				<a href="gallery.html">Галерея</a>
+				<a href="quiz.html">Опрос</a>
+			</ul>
+		</nav>
+		<main>
+			<h1>Книжная полка</h1>
+			<div id="books"></div>
+		</main>
+		<footer>
+			<hr>
+			<div>
+				<p>&copy 2022 - Anastasia Yazvinskaya</p>
+				<a href="#"><img id="github" src="images/github-logo.png" alt="GitHub link"></a>
+			</div>
+		</footer>
+	</body>
+</html>

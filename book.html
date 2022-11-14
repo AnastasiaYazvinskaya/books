@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title class="name">Книга</title>
+		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/book.css">
+		<script type="text/javascript" src="js/dataBooks.js"></script>
+		<script>
+			window.onload = function() {
+		 		var url = document.location.href,
+                    book = url.split('?')[1].split('=')[1];
+
+                var author = document.getElementsByClassName('author');
+                for (var i=0; i<author.length; i++) {
+                	author[i].innerHTML = dataBooks.books[book].author;
+                }
+                var name = document.getElementsByClassName('name');
+                for (var i=0; i<name.length; i++) {
+                	name[i].innerHTML = dataBooks.books[book].name;
+                }
+                document.getElementById('cover').innerHTML = "<img src='images/"+ dataBooks.books[book].code +".jpg' alt='Обложка книги \""+ dataBooks.books[book].name +"\"'>";
+                document.getElementById('painter').innerHTML = dataBooks.books[book].painter;
+                document.getElementById('translator').innerHTML = dataBooks.books[book].translator;
+                document.getElementById('annotation').innerHTML = dataBooks.books[book].annotation;
+                document.getElementById('pages').innerHTML = "<img src='images/"+dataBooks.books[book].code+"_p1.jpg'><img src='images/"+dataBooks.books[book].code+"_p2.jpg'><img src='images/"+dataBooks.books[book].code+"_p3.jpg'>";
+
+                for (var index in dataBooks.books[book].similar) {
+                	var link = dataBooks.books[book].similar[index];
+                	document.getElementById('links').innerHTML += "<a class='clicked' href='book.html?book="+link+"'><img src='images/"+dataBooks.books[link].code+".jpg'><p>"+dataBooks.books[link].name+"</p><p>"+dataBooks.books[link].author+"</p></a>";
+                }
+			}
+		</script>
+	</head>
+
+	<body>
+		<nav>
+			<ul>
+				<a href="index.html">Книжная полка</a>
+				<a href="gallery.html">Галерея</a>
+				<a href="quiz.html">Опрос</a>
+			</ul>
+		</nav>
+
+		<main>
+			<h1><span class="author"></span>: <span class="name"></span></h1>
+			<div id="main-info">
+				<div id="cover"></div>
+				<div>
+					<p>Автор: <span class="author"></span></p>
+					<p>Художник: <span id="painter"></span></p>
+					<p>Переводчик: <span id="translator"></span></p>
+				</div>
+			</div>
+
+			<h3>Аннотация к книге "<span class="name"></span>"</h3>
+			<p><span id="annotation"></span></p>
+
+			<div id="pages"></div>
+
+			<hr>
+			<h3>Похожие книги</h3>
+			<div id="links"></div>
+		</main>
+		<footer>
+			<hr>
+			<div>
+				<p>&copy 2022 - Anastasia Yazvinskaya</p>
+				<a href="#"><img id="github" src="images/github-logo.png" alt="GitHub link"></a>
+			</div>
+		</footer>
+	</body>
+</html>

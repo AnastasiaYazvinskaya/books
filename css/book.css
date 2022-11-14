@@ -1,0 +1,48 @@
+h3 {
+	text-align: center;
+}
+#main-info {
+	background-color: #B7E1C9;
+	display: flex;
+	justify-content: center;
+	width: 550px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 10px;
+}
+#main-info img {
+	width: 250px;
+	margin-right: 5px;
+	border-radius: 5px;
+}
+#main-info div {
+	align-self: end;
+}
+#pages {
+	display: flex;
+}
+#pages img {
+	width: 150px;
+	margin: 0 auto;
+	border-radius: 5px;
+	transition: 0.5s;
+}
+#pages img:hover {
+	transform: scale(2);
+	box-shadow: 0 0 200px black;
+}
+#links {
+	display: flex;
+}
+#links a {
+	width: 150px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #B7E1C9;
+	border: 2px black solid;
+	border-radius: 10px;
+}
+#links a img {
+	width: 150px;
+	border-radius: 10px;
+}
